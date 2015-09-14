@@ -1,0 +1,327 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <link href="https://www.getdrip.com/favicon.ico?v=2" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+    <link href="https://www.getdrip.com/assets/octicons-a7ec80ddb769b6b5579bc39b5bcb4c9d.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="https://www.getdrip.com/assets/external-9fca268cd7b3b710bed05bcbd2856ae9.css" media="all" rel="stylesheet" type="text/css" />
+
+    <!--<link rel="stylesheet" href="styles/main.css">-->
+    <!-- endbuild -->
+</head>
+<body class="external signin no-contents fixed-width" ng-app="myApp">
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<div class="header">
+    <div class="menu-container">
+        <div class="container">
+            <a href="/" class="logo">Drip</a>
+        </div>
+    </div>
+
+    <div class="splash">
+        <div class="container">
+            <!--<h1>Welcome Back!</h1>-->
+
+            <div class="signin-container" data-ng-controller="MainCtrl" >
+                <div class="heading">
+                    <h2>Sign In to Your Drip Account</h2>
+                </div>
+                <form accept-charset="UTF-8" name="urlForm" id="urlForm" novalidate ng-submit="submitForm()" >
+
+                    <dl class="form full">
+                        <dt><label for="url">URL</label></dt>
+                        <dd><input id="url"
+                                   name="url"
+                                   placeholder="http://www.example.com"
+                                   type="text"
+                                   ng-model="getUrl"
+                                   required
+                                   ng-pattern="urlRegex"/></dd>
+                        <dd><span class="error" ng-show="urlForm.url.$error.pattern">
+                  Pls input valid URL!</span>
+                        </dd>
+                    </dl>
+                </form>
+                <div class="call-to-signup">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>
+                                Log
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody ng-repeat="url in log" >
+                        <tr>
+                            <td>
+                                {{url}}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container">
+    <div ng-view=""></div>
+</div>
+
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+<script>
+    !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+        (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+            r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+    }(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-XXXXX-X');
+    ga('send', 'pageview');
+</script>
+
+<script src="./lib/angular-1.1.5.js"></script>
+<script src="./scripts/app.js"></script>
+<script src="./scripts/controllers.js"></script>
+</body>
+</html>
+
+
+<<!--!DOCTYPE html>
+<html class="no-js" lang="en" ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>URL Form</title>
+
+
+
+
+
+<body>
+
+
+
+        <div   data-offcanvas="data-offcanvas" class="off-canvas-wrap fullHeight">
+
+        <div   class="inner-wrap fullHeight">
+
+            &lt;!&ndash;MOBILE HEADER&ndash;&gt;
+            <div  class="row hide-for-large-up mobile_header">
+                <div class="small-3 columns">
+                    <a href="#" class="left-off-canvas-toggle mobile_nav">
+                        <i class="step fi-align-justify"></i>
+                    </a>
+                </div>
+                <div class="small-9 columns s-mobile-header-right">
+                    <a href="#" class="logo">
+                        <img src="./images/logo.png">
+                    </a>
+                </div>
+            </div>
+
+            &lt;!&ndash;MOBILE NAV&ndash;&gt;
+           &lt;!&ndash; <aside data-ng-show="token" class="left-off-canvas-menu s-app-left-nav-col" style="min-height: 4463px;">&ndash;&gt;
+                <aside class="left-off-canvas-menu s-app-left-nav-col" style="min-height: 4463px;">
+                <nav id="core-lhs-nav">
+                    <ul class="sidebar_list">
+                        <li>
+                            <ul>
+                                <li>
+                                    <div class="avatar" style="background-image: url(images/avatar.jpg)">
+                                        <img gravatar-src="'alex@brownbox.net.au'" gravatar-size="100">
+                                    </div>
+
+                                    <a class="username_link">
+                                        Username
+                                        <i class="step fi-play"></i>
+                                    </a>
+                                    <div class="user_menu">
+                                        <ul>
+                                            <li>
+                                                <a href="#/myaccount/personal">My account</a>
+                                            </li>
+                                            <li>
+                                                <a href="#/mycompany">My company</a>
+                                            </li>
+                                            <li>
+                                                <a ng-click="logout()">Sign out</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            &lt;!&ndash;<a ng-click="dashboardchart()" class="sidebar_item">&ndash;&gt;
+                            <a href="#/dashboard/chart" class="sidebar_item">
+                                <i class="step fi-graph-trend"></i>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li>
+                            &lt;!&ndash;<a ng-click="paymentscharges()" class="sidebar_item">&ndash;&gt;
+                            <a href="#/payments/charges" class="sidebar_item">
+                                <i class="step fi-dollar-bill"></i>
+                                Payments
+                            </a>
+                        </li>
+                        <li>
+                            &lt;!&ndash;<a ng-click="customers()" class="sidebar_item">&ndash;&gt;
+                            <a href="#/customers/customers" class="sidebar_item">
+                                <i class="step fi-social-skillshare"></i>
+                                Customers
+                            </a>
+                        </li>
+                        <li>
+                            &lt;!&ndash;<a ng-click="connectedgateways()" class="sidebar_item">&ndash;&gt;
+                            <a ng-href="#/gateways/connected" class="sidebar_item">
+                                <i class="step fi-link"></i>
+                                Gateways
+                            </a>
+                        </li>
+                        <li>
+                            &lt;!&ndash;<a ng-click="currentnotifications()" class="sidebar_item">&ndash;&gt;
+                                <a ng-href=#/notifications/current" class="sidebar_item">
+                                <i class="step fi-comment"></i>
+                                Notifications
+                            </a>
+                        </li>
+                        <li>
+                            <a ng-href="#/billing/plan" class="sidebar_item">
+                                <i class="step fi-graph-pie"></i>
+                                Billing
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <div  class="row fullWidth fullHeight"> &lt;!&ndash;ng-hide=true works only here&ndash;&gt;
+
+                &lt;!&ndash;SIDEBAR&ndash;&gt;
+                    &lt;!&ndash;<div ng-if="token" class="large-2 columns fullHeight s-app-left-nav-col no-padding show-for-large-up sidebar">&ndash;&gt;
+                        <div  data-ng-controller="EmptyCtrl" class="large-2 columns fullHeight s-app-left-nav-col no-padding show-for-large-up sidebar">
+                    <ul  class="sidebar_list">
+                        <li >
+                            <ul>
+                                <li>
+                                    <div class="avatar" style="background-image: url(images/avatar.jpg)">
+                                        &lt;!&ndash;<img gravatar-src="'alex@brownbox.net.au'" gravatar-size="100">&ndash;&gt;
+                                        &lt;!&ndash;<img gravatar-src="{{gravatar}}" gravatar-size="100">&ndash;&gt;
+                                        <ui-gravatar gravatar-email="email" gravatar-options="options"></ui-gravatar>
+                                    </div>
+                                    <a class="username_link">
+                                        {{this.usern}}
+                                        <i class="step fi-play"></i>
+                                    </a>
+                                    <div class="user_menu" data-ng-controller="LogoutCtrl">
+                                        <ul>
+                                            <li>
+                                                <a href="#/myaccount/personal">My account</a>
+                                            </li>
+                                            <li>
+                                                <a href="#/mycompany">My company</a>
+                                            </li>
+                                            <li>
+                                                <a ng-click="logout()">Sign out</a>
+                                                &lt;!&ndash;<a href="#/">Sign out</a>&ndash;&gt;
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            &lt;!&ndash;<a ng-click="dashboardchart()" class="sidebar_item">&ndash;&gt;
+                            <a href="#/dashboard/chart" class="sidebar_item">
+                                <i class="step fi-graph-trend"></i>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li>
+                            &lt;!&ndash;<a ng-click="paymentscharges()" class="sidebar_item">&ndash;&gt;
+                                <a href="#/payments/charges" class="sidebar_item">
+                                <i class="step fi-dollar-bill"></i>
+                                Payments
+                            </a>
+                        </li>
+                        <li>
+                            &lt;!&ndash;<a ng-click="customers()" class="sidebar_item">&ndash;&gt;
+                                <a href="#/customers/customers" class="sidebar_item">
+                            <i class="step fi-social-skillshare"></i>
+                                Customers
+                            </a>
+                        </li>
+
+                        <li>
+                            &lt;!&ndash;<a ng-click="connectedgateways()" class="sidebar_item">&ndash;&gt;
+                            <a ng-href="#/gateways/connected" class="sidebar_item">
+                                <i class="step fi-link"></i>
+                                Gateways
+                            </a>
+                        </li>
+                        <li>
+                            &lt;!&ndash;<a ng-click="currentnotifications()" class="sidebar_item">&ndash;&gt;
+                            <a ng-href="#/notifications/current" class="sidebar_item">
+                                <i class="step fi-comment"></i>
+                                Notifications
+                            </a>
+                        </li>
+                        <li>
+                            <a ng-href="#/billing/plan" class="sidebar_item">
+                                &lt;!&ndash;<a ng-href="#/billing" class="sidebar_item">&ndash;&gt;
+                                <i class="step fi-graph-pie"></i>
+                                Billing
+                            </a>
+                        </li>
+                    </ul>
+                </div>  &lt;!&ndash;end of "large-2 columns fullHeight s-app-left-nav-col no-padding show-for-large-up sidebar"&ndash;&gt;
+
+                &lt;!&ndash;CONTENT&ndash;&gt;
+                <div class="large-10 columns content">
+
+                    <div class="header cf">
+                        <a href="#" class="logo">
+                            <img src="images/logo.png">
+                        </a>
+                    </div>
+
+                    <div class="container" ng-view="">
+
+
+                    </div>
+                </div>
+            </div>  &lt;!&ndash;end of "row fullWidth fullHeight"&ndash;&gt;
+            <a class="exit-off-canvas"></a>
+        </div>
+    </div>
+&lt;!&ndash;<div class="container" ng-view="">&ndash;&gt;
+
+    &lt;!&ndash; SCRIPTS &ndash;&gt;
+
+    <script src="./lib/angular-1.1.5.js"></script>
+    <script src="./scripts/app.js"></script>
+    <script src="./scripts/controllers.js"></script>
+    <script src="./scripts/services.js"></script>
+
+
+
+
+
+
+</body>
+</html>
+-->
